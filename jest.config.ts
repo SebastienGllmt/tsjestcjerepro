@@ -189,17 +189,9 @@ export default {
   testMatch: [
     "**/src/**/*.(spec|test).[tj]s?(x)"
   ],
-  // preset: 'ts-jest',
-  // transform: {},
-
   preset: 'ts-jest/presets/default-esm',
   transform: {
-    // '^.+\\.(ts|tsx)?$': 'ts-jest',
-    // "^.+\\.(js|jsx)$": "babel-jest",
-  },
-  'extensionsToTreatAsEsm': [".ts", ".tsx"],
-  globals: {
-    'ts-jest': {
+    '^.+\\.ts$': ['ts-jest', {
       useESM: true,
       tsconfig: {
         allowSyntheticDefaultImports: true,
@@ -214,6 +206,7 @@ export default {
         strictNullChecks: true,
         target: "ES2020",
       }
-    },
-  }
+    }],
+  },
+  'extensionsToTreatAsEsm': [".ts", ".tsx"],
 };
